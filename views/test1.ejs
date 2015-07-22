@@ -1,0 +1,101 @@
+<html>
+<head>
+    <title>Super Heroes</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+</head>
+<script>
+    var remtog=0;
+    var seltog=0;
+    var seletog=0;
+    function appendMessage(i,j) {
+
+        if(seletog==0)
+            alert('Please click the Select button.');
+        else{
+            var oText = document.createTextNode(i);
+            var elid='sel'+j;
+            var list = document.getElementById('Selected');
+            var entry = document.createElement('li');
+            entry.appendChild(oText);
+            entry.id=elid;
+            entry.style.cursor='hand';
+            entry.onclick=function(){
+                var element = document.getElementById(elid);
+                if(remtog==1)
+                    element.parentNode.removeChild(element);
+                remtog=0;
+            };
+            if(!document.getElementById(elid)) {
+                list.appendChild(entry);
+            }
+            else{
+                alert('Already Selected');
+            }
+        }
+    }
+    function fseletog(){
+        if(seletog==0) {
+            seletog = 1;
+        }
+        else {
+            seletog = 0;
+        }
+    }
+    function fremtog(){
+        if(remtog==0) {
+            remtog = 1;
+        }
+        else {
+            remtog = 0;
+        }
+    }
+    function fseltog() {
+        var x=document.getElementById('Selected');
+        var y=document.getElementById('bseltog');
+        if(seltog==0) {
+            seltog = 1;
+            x.style.visibility='visible';
+            y.innerHTML='Hide';
+        }
+        else {
+            seltog = 0;
+            x.style.visibility='hidden';
+            y.innerHTML='Show';
+        }
+    }
+</script>
+<body>
+<h1>Super Heroes</h1>
+
+<p>To select a superhero, first press the select button.</p>
+<p>To view the selected superheroes press Show button below.</p>
+
+<button id='bseletog' onclick="fseletog()">Select</button>
+<br><br>
+<div class="row">
+
+    <div class="col-sm-12 text-center">
+        <div class="ran">
+
+            <!--vill.name is fetched from backend
+            The divs are dynamic depending on quantity of data.-->
+
+            <!--The line below is the embedded javascript part-->
+    <%for(var i=0 ; i<vill.name.length ;i++){%>
+    <div id='vill<%=i%>' style="padding: 10px;display: inline-block;text-align: center;">
+        <img src="/images/img<%=i%>.jpg" id="<%=i%>" oncontextmenu="return false;" ondrag="return false;" onmousedown="return false;" onclick="appendMessage('<%=vill.name[i]%>','<%=i%>')" onmouseover="this.style.opacity=0.7" onmouseout="this.style.opacity=1" style="height:200px;width:200px">
+        <br><br>
+        <span><%=vill.name[i]%></span>
+    </div>
+    <%}%>
+    </div>
+    </div>
+</div>
+<br><br>
+<button id='bremtog' onclick="fremtog()">Remove</button>
+<br><br>
+<button id='bseltog' onclick="fseltog()">Show</button>
+<ul id="Selected" style="visibility: hidden;padding-left: 50px">Selected :-</ul>
+</body>
+</html>

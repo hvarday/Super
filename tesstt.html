@@ -1,0 +1,35 @@
+<html>
+<head>
+    <title>appendChild() Example</title>
+    <script type="text/javascript">
+        function appendMessage(i) {
+            var oNewP = document.createElement("p");
+            var oText = document.createTextNode(i);
+            oNewP.appendChild(oText);
+            oNewP.className='hell';
+            document.body.appendChild(oNewP);
+        }
+    </script>
+    <style>
+        #apd{
+            height: 50px;
+            width: 50px;
+            background-color: darkblue;
+        }
+
+    </style>
+</head>
+<body>
+<P>Hello World!</p>
+</body>
+</html>
+
+function rem(i){
+var element = document.getElementById(i);
+element.parentNode.removeChild(element);
+}
+
+var list = document.getElementById('Selected');
+var entry = document.createElement('li');
+entry.appendChild(oText);
+list.appendChild(entry);

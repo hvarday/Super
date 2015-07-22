@@ -1,0 +1,14 @@
+<html>
+<head>
+    <title>Super Heroes</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+<%var c%>
+<%for(var i=0 ; i<names.length ; i++){%>
+<p id="names" onmouseover="document.getElementById('head').innerHTML='<%=names[i]%>'"><%=names[i]%></p>
+<%}%>
+<br><br>
+<h4 id='head'></h4>
+</body>
+</html>

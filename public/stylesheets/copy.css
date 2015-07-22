@@ -1,0 +1,35 @@
+body {
+    padding: 20px;
+    background-image: url("/images/wallpaper.jpg");
+    background-color: black;
+    color: white;
+    font-family: 'Century Gothic', Arial;
+}
+h1{
+    font-family: Consolas;
+    text-align: center;
+}
+#container{
+    border: solid;
+    border-width: 2px;
+    display: block;
+    align-self: center;
+    width: 1000px;
+}
+span{
+    text-align: center;
+    font-size: larger;
+    cursor: default;
+}
+#vill0{
+    padding-left: 0%;
+}
+#bseletog{
+    font-size: 20px;
+    font-family: "Century Gothic";
+    border-radius: 5px;
+}
+#bseletog:active{
+    opacity: 0.7;
+}
+
